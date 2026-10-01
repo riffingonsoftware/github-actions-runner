@@ -34,7 +34,7 @@ RUN mkdir -p /opt/actions-runner.dist \
     && rm actions-runner.tar.gz \
     && ./bin/installdependencies.sh
 
-COPY entrypoint.sh /usr/local/bin/mira-gha-runner-entrypoint
-RUN chmod 0755 /usr/local/bin/mira-gha-runner-entrypoint
+COPY entrypoint.sh /usr/local/bin/github-actions-runner-entrypoint
+RUN chmod 0755 /usr/local/bin/github-actions-runner-entrypoint
 
-ENTRYPOINT ["/usr/local/bin/mira-gha-runner-entrypoint"]
+ENTRYPOINT ["/usr/local/bin/github-actions-runner-entrypoint"]

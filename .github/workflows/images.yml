@@ -24,7 +24,7 @@ concurrency:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: mira-hashedreality/mira-github-actions-runner
+  IMAGE_NAME: riffingonsoftware/github-actions-runner
   DEFAULT_RUNNER_VERSION: "2.335.1"
 
 jobs:
@@ -67,11 +67,12 @@ jobs:
             type=raw,value=${{ steps.vars.outputs.runner_version }}
             type=sha,prefix=sha-
           labels: |
-            org.opencontainers.image.title=MIRA GitHub Actions runner
-            org.opencontainers.image.description=Self-hosted GitHub Actions runner image used by MIRA local runners
+            org.opencontainers.image.title=GitHub Actions runner
+            org.opencontainers.image.description=Self-hosted GitHub Actions runner image for local runners
             org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
 
       - name: Build and push
+        id: build
         uses: docker/build-push-action@v6
         with:
           context: ./github-actions-runner
@@ -82,3 +83,8 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Record image digest
+        env:
+          IMAGE_DIGEST: ${{ steps.build.outputs.digest }}
+        run: echo "${REGISTRY}/${IMAGE_NAME}@${IMAGE_DIGEST}" >> "$GITHUB_STEP_SUMMARY"

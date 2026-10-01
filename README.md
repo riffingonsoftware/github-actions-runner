@@ -1,6 +1,6 @@
-# MIRA GitHub Actions runner image
+# GitHub Actions runner image
 
-Custom Docker image for MIRA-owned local/self-hosted GitHub Actions runner containers.
+Custom Docker image for local/self-hosted GitHub Actions runner containers.
 
 It packages:
 
@@ -12,8 +12,8 @@ It packages:
 Published image:
 
 ```text
-ghcr.io/mira-hashedreality/mira-github-actions-runner:latest
-ghcr.io/mira-hashedreality/mira-github-actions-runner:2.335.1
+ghcr.io/riffingonsoftware/github-actions-runner:latest
+ghcr.io/riffingonsoftware/github-actions-runner:2.335.1
 ```
 
 ## Local build
@@ -21,7 +21,7 @@ ghcr.io/mira-hashedreality/mira-github-actions-runner:2.335.1
 ```bash
 docker build \
   --build-arg RUNNER_VERSION=2.335.1 \
-  -t ghcr.io/mira-hashedreality/mira-github-actions-runner:2.335.1 \
+  -t ghcr.io/riffingonsoftware/github-actions-runner:2.335.1 \
   ./github-actions-runner
 ```
 
@@ -32,7 +32,7 @@ Use one image for multiple repo-scoped runners; keep separate runner state/work/
 ```yaml
 services:
   github-actions-runner:
-    image: ghcr.io/mira-hashedreality/mira-github-actions-runner:latest
+    image: ghcr.io/riffingonsoftware/github-actions-runner:latest
 ```
 
 The container intentionally does **not** bake in runner registration credentials. Registration uses a short-lived `registration.env` bind mount consumed and deleted by the entrypoint.

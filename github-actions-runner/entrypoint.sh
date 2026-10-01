@@ -4,8 +4,8 @@ set -euo pipefail
 RUNNER_HOME="${RUNNER_HOME:-/opt/actions-runner}"
 RUNNER_DIST="${RUNNER_DIST:-/opt/actions-runner.dist}"
 RUNNER_WORKDIR="${RUNNER_WORKDIR:-/opt/data/config/github-actions-runner/work}"
-RUNNER_NAME="${RUNNER_NAME:-mira-gha-runner}"
-RUNNER_LABELS="${RUNNER_LABELS:-mira,docker,linux,x64}"
+RUNNER_NAME="${RUNNER_NAME:-github-actions-runner}"
+RUNNER_LABELS="${RUNNER_LABELS:-docker,linux,x64}"
 SECRETS_FILE="${GITHUB_RUNNER_SECRETS_FILE:-/run/github-runner-secrets/registration.env}"
 DELETE_TOKEN_FILE="${GITHUB_RUNNER_DELETE_TOKEN_FILE_AFTER_CONFIG:-true}"
 
