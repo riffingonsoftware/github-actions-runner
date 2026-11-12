@@ -11,6 +11,7 @@ RUN apt-get update \
       cmake \
       curl \
       docker.io \
+      gh \
       git \
       jq \
       libicu74 \
@@ -20,6 +21,7 @@ RUN apt-get update \
       protobuf-compiler \
       python3 \
       python3-venv \
+      sudo \
       tar \
       tzdata \
       unzip \
