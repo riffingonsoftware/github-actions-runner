@@ -6,7 +6,7 @@ It packages:
 
 - GitHub Actions runner `2.335.1`
 - Docker CLI and Buildx for jobs that use the host Docker socket
-- `gh` and `sudo`, which workflows written for GitHub-hosted runners call
+- `gh`, `sqlite3`, `sudo` and Google Chrome, which workflows written for GitHub-hosted runners call
 - Rust/native build prerequisites used by current private CI workloads: `build-essential`, `pkg-config`, `libssl-dev`, `cmake`, `protobuf-compiler`, Python venv support, and common archive/network tools
 - A small entrypoint that keeps runner state in a mounted persistent directory and waits for a short-lived GitHub registration token file when not yet configured
 
